@@ -1,0 +1,1 @@
+insert into event (eventId,registrationDate,fullName,mobileNumber,registrationType,numTickets) values ( 1,sysdate, 'Abhishek Nanda', 8989898989,'Self',1);

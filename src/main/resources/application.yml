@@ -1,0 +1,24 @@
+server:
+  port: 8086
+
+
+spring:
+  profiles:
+    active: test
+  security: 
+    basic: 
+      enabled: true
+    user: 
+      name: gaurav
+      password: bytes
+      
+  
+---
+spring:      
+  profiles: test
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl

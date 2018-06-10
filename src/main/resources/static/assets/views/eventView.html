@@ -1,0 +1,152 @@
+<br />
+
+<div class="row justify-content-center">
+  <div class="col-11">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <nav class="navbar navbar-expand-md bg-info">
+          <div class="container">
+            <a class="navbar-brand">Add an Event</a>
+
+          </div>
+        </nav>
+      </div>
+      <div class="col-11"><br /></div>
+      <div class="col-10">
+
+        <div class="card no-hover">
+          <div class="card-header">
+
+            <h5>Add an Event</h5>
+          </div>
+          <div class="card-body">
+            <div class="row justify-content-center">
+              <div class=" col-6 ">
+                <form name="eventForm1" ng-submit="upload()">
+                  <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" required="true" class="form-control" name="fullName" id="name" ng-model="eventForm.fullName" aria-describedby="nameHelp" placeholder="Enter name">
+                    <small id="nameHelp" class="form-text text-muted">Full Name is mandatory</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="mobileNumber">Mobile Number</label>
+                    <input type="text" required="true" maxlength="10" pattern="[1-9]{1}[0-9]{9}" class="form-control" ng-model="eventForm.mobileNumber" name="mobileNumber" id="mobileNumber" aria-describedby="mobileHelp" placeholder="Enter mobileNumber">
+                    <small id="mobileHelp" class="form-text text-muted">Mobile Number is mandatory</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" required="true" class="form-control" name="email" id="email" ng-model="eventForm.email" aria-describedby="emailHelp" placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">Email is mandatory</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="idCard">Id Card</label>
+                    <input type="file" required="true" class="form-control"  ng-model="idCard" ngf-select name="idCard" id="idCard" accept=".png, .jpg, .jpeg" aria-describedby="idCardHelp" placeholder="Upload Id Card">
+                    <small id="idCardHelp" class="form-text text-muted">Id Card is mandatory</small>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="registrationType">Registration Type</label>
+                    <select multiple class="form-control height-100" name="registrationType" ng-model="eventForm.registrationType" id="registrationType" required="true">
+                      <option ng-click="eventForm.numTickets=1">Self</option>
+                      <option>Group</option>
+                      <option>Corporate</option>
+                      <option>Others</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="numTickets">Number of Tickets</label>
+                    <input type="number" required="true" class="form-control" name="numTickets" ng-model="eventForm.numTickets" ng-if="eventForm.registrationType!='Self'" id="numTickets" aria-describedby="numTicketsHelp" placeholder="Number of Tickets">
+                    <small id="numTicketsHelp" class="form-text text-muted">Number of Tickets is mandatory</small>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary">Add Event</button>
+                </form>
+
+              </div>
+              <div class=" col-6 ">
+                <img ng-show="idCard[0] != null" id="previewImage" ngf-src="idCard[0]" alt="your image" class="full-size"/>
+                <img ng-show="idCard[0] == null" id="previewImage" ng-src="assets/img/avatar.png" alt="your image" class="full-size"/>
+                <span>Select your idcard to preview</span>
+              </div>
+            </div>
+
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="modal large fade"  id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="exampleModalLabel">{{modal.title}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                  <div class="card-body">
+                    <div class="row justify-content-center">
+                      <div class=" col-6 ">
+                          <div class="form-group">
+                            <h5>Full Name</h5 >
+                            <span ng-bind="modal.data.fullName"></span>
+                          </div>
+                          <div class="form-group">
+                            <h5 >Mobile Number</h5>
+                            <span ng-bind="modal.data.mobileNumber"></span>
+                          </div>
+                          <div class="form-group">
+                            <h5 >Email</h5>
+                            <span ng-bind="modal.data.email"></span>
+                          </div>
+
+
+                          <div class="form-group">
+                            <h5 >Registration Type</h5>
+                            <span ng-bind="modal.data.registrationType[0]"></span>
+                          </div>
+                          <div class="form-group">
+                            <h5 >Number of Tickets</h5>
+                          <span ng-bind="modal.data.numTickets"></span>
+                          </div>
+
+
+                      </div>
+                      <div class=" col-6 ">
+                          <img ng-src="{{modal.data.idCard}}" class="full-size"/>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+                <div class="modal-footer">
+
+                    <div class="">
+                        <button type="button"  data-dismiss="modal" class="btn btn-success btn-link">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <nav class="navbar navbar-expand-md bg-primary">
+          <div class="container">
+            <a class="navbar-brand">Event Manager</a>
+            <div class="collapse navbar-collapse" id="navbar-info">
+
+            </div>
+          </div>
+        </nav>
+      </div>
+
+    </div>
+  </div>
+</div>

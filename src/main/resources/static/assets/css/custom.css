@@ -1,0 +1,51 @@
+.width-150{
+  width: 150% !important;
+}
+.my-controller {
+  border: 1px solid #fcc;
+  padding: 5px;
+  margin: 3px;
+}
+.my-controller small {
+  color: #c99;
+}
+.other-controller {
+  border: 5px solid #839e9c;
+  padding: 5px;
+  margin: 3px;
+}
+.current{
+background-color: #d0988e !important;
+    border-color: #d0988e !important;
+  }
+.paging{
+  padding:20px;
+  font-weight: bold;
+  color: #409287 !important;
+}
+
+.paging:hover .paging:focus{
+  background-color: #d0988e !important;
+      border-color: #d0988e !important;
+
+}
+
+.padding-200{
+  padding-left: 200px;
+}
+
+.margin-8{
+  margin-top: 8%;
+}
+.height-100{
+  height: 100%;
+}
+.full-size{
+  height: 100%;
+  width: 100%;
+}
+
+.A100by100{
+  height: 400px;
+  width: 400px;
+}
